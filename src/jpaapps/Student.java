@@ -6,6 +6,7 @@
 package jpaapps;
 
 import java.io.Serializable;
+//import javax.persistence.Entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,23 +28,18 @@ public class Student implements Serializable {
      @Id
     private int id;
     private String name;
-    private  String Major;
-    private double Grade;
+    private  String major;
+    private double grade;
 
     public Student(){
         
     }
     
-    public Student(int id, String name, String Major, double Grade) {
-        this.id = id;
-        this.name = name;
-        this.Major = Major;
-        this.Grade = Grade;
-    }
+  
 
     @Override
     public String toString() {
-        return String.format("%-5s %-5s %-5s %-5s", id ,name ,Major ,Grade);
+        return String.format("%-5s %-5s %-5s %-5s", id ,name ,major ,grade);
     }
 
     public int getId() {
@@ -62,21 +58,30 @@ public class Student implements Serializable {
         this.name = name;
     }
 
-    public String getMajor() {
-        return Major;
+    public Student(int id, String name, String major, double grade) {
+        this.id = id;
+        this.name = name;
+        this.major = major;
+        this.grade = grade;
     }
 
-    public void setMajor(String Major) {
-        this.Major = Major;
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public double getGrade() {
-        return Grade;
+        return grade;
     }
 
-    public void setGrade(double Grade) {
-        this.Grade = Grade;
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
+
+   
     
     
 }

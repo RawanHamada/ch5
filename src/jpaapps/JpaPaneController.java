@@ -1,9 +1,10 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package jpaapps;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -21,7 +22,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
-import static javax.persistence.Persistence.createEntityManagerFactory;
 import javax.persistence.Query;
 
 /**
@@ -30,8 +30,7 @@ import javax.persistence.Query;
  * @author jit
  */
 public class JpaPaneController implements Initializable {
-
-  @FXML
+ @FXML
     private TextField TextFieldId;
     @FXML
     private TextField TextFieldName;
@@ -76,11 +75,11 @@ public class JpaPaneController implements Initializable {
     @FXML
     private TableView<Registration> tableCourse;
     @FXML
-    private TableColumn<Registration, String> idStdC;
+    private TableColumn<Registration, Integer> idStdC;
     @FXML
-    private TableColumn<Registration, String> idCourseC;
+    private TableColumn<Registration, Integer> idCourseC;
     @FXML
-    private TableColumn<Registration, String> smesterC;
+    private TableColumn<Registration, Integer> smesterC;
     EntityManagerFactory emf;
     
 
@@ -96,12 +95,12 @@ public class JpaPaneController implements Initializable {
         idStdC.setCellValueFactory(new PropertyValueFactory("studentid"));
         idCourseC.setCellValueFactory(new PropertyValueFactory("courseid"));
         smesterC.setCellValueFactory(new PropertyValueFactory("smester"));
-        this.emf=Persistence.createEntityManagerFactory("Chapter5JPAPU");  
+        this.emf=Persistence.createEntityManagerFactory("JpaAppsPU");  
       
     }    
 
     @FXML
-    private void buttonAddHandle(ActionEvent event) {
+   private void buttonAddHandle(ActionEvent event) {
         
         Student s = new Student();
         s.setId(TextFieldId.getText());
@@ -156,9 +155,9 @@ public class JpaPaneController implements Initializable {
         boolean check1=false;
         boolean t=false;
         Registration re=new Registration();
-        re.setStudentid(IdStudent.getText());
-        re.setCourseid(IdCourse.getText());
-        re.setSmester(smester.getText());
+        re.setStudentid(idStdC.getText());
+        re.setCourseid(idCourseC.getText());
+        re.setSemester(smesterC.getText());
         EntityManager em1=this.emf.createEntityManager();
         List<String> s1=em1.createQuery("SELECT s.id FROM Student s ").getResultList();
         List<String> s2=em1.createQuery("SELECT c.id FROM course c ").getResultList();
@@ -178,7 +177,7 @@ public class JpaPaneController implements Initializable {
         
         //check if student registration course more thane once
         //smester and course id not null
-        if((!r.equals(null)&&!r1.equals(null))&&(r.contains(re.getCourseid())&&r1.contains(re.getSmester()))){
+        if((!r.equals(null)&&!r1.equals(null))&&(r.contains(re.getCourseid())&&r1.contains(re.getSemester()))){
             t=true;
         }
        
@@ -271,4 +270,5 @@ public class JpaPaneController implements Initializable {
         em.close();
 
     }
+    
 }

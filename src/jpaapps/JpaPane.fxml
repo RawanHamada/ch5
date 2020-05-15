@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jpaapps.JpaPaneController">
-  <children>
+     <children>
       <HBox layoutX="32.0" layoutY="88.0" prefHeight="217.0" prefWidth="515.0" style="-fx-background-color: lightblue;">
          <children>
             <GridPane hgap="3.0" maxHeight="-Infinity" prefHeight="236.0" prefWidth="229.0" vgap="3.0">

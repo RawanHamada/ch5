@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 public class JpaApp extends Application {
     
     @Override
-    public void start(Stage primaryStage)  throws Exception {
+    public void start(Stage primaryStage)  throws Exception     {
       Pane jpaPane = FXMLLoader.load(getClass().getResource("JpaPane.fxml"));
         Scene scene = new Scene(jpaPane);
         primaryStage.setTitle("JPA App");

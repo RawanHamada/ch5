@@ -28,9 +28,9 @@ import javax.persistence.OneToMany;
 public class Registrations {
      @Id 
     @OneToMany
-    private String studentid ;
+    private int studentid ;
     @Id 
-    private String courseid;
+    private int courseid;
     @Id
     private int semester;
 
